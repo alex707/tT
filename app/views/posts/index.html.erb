@@ -1,0 +1,11 @@
+<h2>Posts translation</h2>
+
+<ul id="posts">
+  <%= render @posts %>
+</ul>
+
+<%= form_for Post.new, remote: true do |f| %>
+  <%= f.text_field :post_name, placeholder: "Post Name" %>
+  <%= f.text_field :content %>
+  <%= f.submit "post" %>
+<% end %>

@@ -1,0 +1,10 @@
+<%= form_for(@wall) do |f| %>
+  <div class="field">
+    <%= f.label :wall_name, :class => 'control-label' %>
+    <%= f.text_field :wall_name, :class => 'form-control', :placeholder => 'Wall Name' %>
+  </div>
+  
+  <div class="field">
+    <%= f.submit 'Create Wall', :class => 'btn btn-default' %>
+  </div>
+<% end %>

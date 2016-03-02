@@ -1,0 +1,35 @@
+<div class="col-xs-12 col-sm-7 col-md-7">
+  <div class="field">
+    <h3><%= @wall.wall_name %></h3>
+  </div>
+
+  <% if user_signed_in? %>
+    <%= form_for Post.new , remote: true do |f| %>
+      <div class="field">
+        <%= f.label :post_name, :class => 'control-label' %>
+        <%= f.text_field :post_name, placeholder: "Post Title", :class => 'form-control' %>
+      </div>
+      <div class="field">
+        <%= f.label :content, :class => 'control-label' %>
+        <%= f.text_field :content, placeholder: "Post Title", :class => 'form-control' %>
+      </div>
+        <%= f.hidden_field :wall_id, :value => @wall.id  %>
+
+      <div class="field">
+        <%= f.submit "post", :class => 'btn btn-default' %>
+      </div>
+    <% end %>
+  <% end %>
+
+      <br/>
+
+  <div id="posts"></div>
+  <% @posts.each do |post| %>
+    <div class="field">
+     <i><%= post.created_at.to_s(:time) %></i>
+     <b><%= post.post_name %></b>
+     <%= post.content %><br/>
+    </div>
+  <% end %>
+
+</div>
